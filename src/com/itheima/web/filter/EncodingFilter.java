@@ -1,4 +1,4 @@
-package cn.itcast.web.filter;
+package com.itheima.web.filter;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Generic servlet
+ * Generic servlet used for sub-classes to extend
  * 2 purposes: 1-find the right servlet; 2-find the right method
  */
 public class BaseServlet extends HttpServlet {
@@ -23,7 +23,8 @@ public class BaseServlet extends HttpServlet {
 			
 			//2.获取请求的方法
 			String m = request.getParameter("method");
-			if(m==null) {
+			
+			if(m==null) {    // consider the case if there is no method, then return to index page
 				m="index";
 			}
 //			System.out.println(m);
@@ -31,10 +32,10 @@ public class BaseServlet extends HttpServlet {
 			//3.获取方法对象
 			Method method = clazz.getMethod(m, HttpServletRequest.class,HttpServletResponse.class);
 			
-			//4.让方法执行  返回值为请求转发的路径
-			String s = (String) method.invoke(this, request,response); //means: userservlet.add(req,res)
+			//4.让方法执行  返回值为请求转发的路径    the returned string is the forwarded path
+			String s = (String) method.invoke(this, request,response); //equals to: userservlet.add(req,res)
 			
-			//5.判断s是否为空
+			//5.判断s是否为空  
 			if(s!=null) {
 				request.getRequestDispatcher(s).forward(request, response);
 			}

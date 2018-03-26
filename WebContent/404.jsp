@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Sorry the resource you requested not exist~~~~
+	Sorry the resource you requested does not exist~~~~
 </body>
 </html>

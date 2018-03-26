@@ -11,13 +11,13 @@ import com.itheima.service.impl.UserServiceImpl;
 import com.itheima.utils.UUIDUtils;
 
 /**
- * 和用户相关的servlet   
+ * 和用户相关的servlet             the servlet about User
  */
 public class UserServlet extends BaseServlet {
 
 	public String add(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		System.out.println("userservlet the add method executing");
+		System.out.println("UserServlet, the add method starts executing");
 		return null;
 	}
 	/**

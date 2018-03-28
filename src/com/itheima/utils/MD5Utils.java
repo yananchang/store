@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5Utils {
 	/**
-	 * Ê¹ÓÃmd5µÄËã·¨½øÐÐ¼ÓÃÜ
+	 * Ê¹ï¿½ï¿½md5ï¿½ï¿½ï¿½ã·¨ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½
 	 */
 	public static String md5(String plainText) {
 		byte[] secretBytes = null;
@@ -14,13 +14,20 @@ public class MD5Utils {
 			secretBytes = MessageDigest.getInstance("md5").digest(
 					plainText.getBytes());
 		} catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException("Ã»ÓÐmd5Õâ¸öËã·¨£¡");
+			throw new RuntimeException("Ã»ï¿½ï¿½md5ï¿½ï¿½ï¿½ï¿½ã·¨ï¿½ï¿½");
 		}
-		String md5code = new BigInteger(1, secretBytes).toString(16);// 16½øÖÆÊý×Ö
-		// Èç¹ûÉú³ÉÊý×ÖÎ´Âú32Î»£¬ÐèÒªÇ°Ãæ²¹0
+		String md5code = new BigInteger(1, secretBytes).toString(16);// 16ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½32Î»ï¿½ï¿½ï¿½ï¿½ÒªÇ°ï¿½æ²¹0
 		for (int i = 0; i < 32 - md5code.length(); i++) {
 			md5code = "0" + md5code;
 		}
 		return md5code;
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(md5("123"));
+	}
+	
+	
+	
 }

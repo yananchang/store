@@ -6,4 +6,6 @@ public interface UserService {
 
 	void regist(User user) throws Exception;
 
+	User active(String code);
+
 }

@@ -70,4 +70,24 @@ public class UserServlet extends BaseServlet {
 		
 		return "/jsp/msg.jsp";
 	}
+	
+	/**
+	 * 用户激活
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public String active(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		//1. 获取激活码
+		String code = request.getParameter("code");
+		
+		//2. 调用service完成激活
+		UserService s = new UserServiceImpl();
+		User user = s.active(code);
+		
+		//3.请求转发到msg.jsp
+		
+	}
 }

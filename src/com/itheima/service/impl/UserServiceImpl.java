@@ -25,6 +25,24 @@ public class UserServiceImpl implements UserService{
 		MailUtils.sendMail(user.getEmail(), emailMsg);
 	}
 
+	/**
+	 * 用户激活
+	 */
+	@Override
+	public User active(String code) {
+		UserDao dao = new UserDaoImpl();
+
+		//1.通过code获取一个用户
+		User user = dao.getByCode(code);
+		//2.判断用户是否为空
+		if(user == null) {
+			return null;
+		}
+		
+		//3.修改用户状态
+		return null;
+	}
+
 }
 
 

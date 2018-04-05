@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao {
 		  `password` varchar(20) DEFAULT NULL,
 		  `name` varchar(20) DEFAULT NULL,
 		  `email` varchar(30) DEFAULT NULL,
-		  `telephone` varchar(20) DEFAULT NULL,
+		  `telephone` varchar(20) DEFAULT NULL,   
 		  `birthday` date DEFAULT NULL,
 		  `sex` varchar(10) DEFAULT NULL,
 		  `state` int(11) DEFAULT NULL,

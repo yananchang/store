@@ -27,9 +27,10 @@ public class UserServiceImpl implements UserService{
 
 	/**
 	 * 用户激活
+	 * @throws Exception 
 	 */
 	@Override
-	public User active(String code) {
+	public User active(String code) throws Exception {
 		UserDao dao = new UserDaoImpl();
 
 		//1.通过code获取一个用户
@@ -40,7 +41,20 @@ public class UserServiceImpl implements UserService{
 		}
 		
 		//3.修改用户状态
-		return null;
+		//将用户的状态设置为1
+		user.setState(1);
+		dao.update(user);
+		
+		return user;
+	}
+
+	/**
+	 * 用户登录
+	 */
+	@Override
+	public User login(String username, String password) throws Exception {
+		UserDao dao = new UserDaoImpl();
+		return dao.getByUsernameAndPwd(username,password);
 	}
 
 }

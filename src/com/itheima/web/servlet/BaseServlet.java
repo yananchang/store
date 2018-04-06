@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Generic servlet used for sub-classes to extend
+ * Generic servlet used for sub-classes to extend, is like a job hub & dispatcher
  * 2 purposes: 1-find the right servlet; 2-find the right method
+ * 
  */
 public class BaseServlet extends HttpServlet {
 

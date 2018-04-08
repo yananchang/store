@@ -8,6 +8,16 @@
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <filter>
+    <filter-name>PrivilegeFilter</filter-name>
+    <filter-class>com.itheima.web.filter.PrivilegeFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>PrivilegeFilter</filter-name>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/jsp/order_info.jsp</url-pattern>
+    <url-pattern>/jsp/order_list.jsp</url-pattern>
+  </filter-mapping>
   <servlet>
     <description></description>
     <display-name>BaseServlet</display-name>
@@ -85,5 +95,15 @@
   <servlet-mapping>
     <servlet-name>OrderServlet</servlet-name>
     <url-pattern>/order</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminCategoryServlet</display-name>
+    <servlet-name>AdminCategoryServlet</servlet-name>
+    <servlet-class>com.itheima.web.servlet.AdminCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminCategoryServlet</servlet-name>
+    <url-pattern>/adminCategory</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -16,4 +16,6 @@ public interface ProductDao {
 
 	int getTotalCount(String cid) throws Exception;
 
+	void updateCid(String cid) throws Exception;
+
 }

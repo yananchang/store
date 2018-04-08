@@ -108,11 +108,17 @@ public class CategoryServiceImpl implements CategoryService {
 			//2.更新商品信息
 			ProductDao pd = (ProductDao) BeanFactory.getBean("ProductDao");
 			pd.updateCid(cid);
+			
 			//3.删除分类
 			 CategoryDao cd = (CategoryDao) BeanFactory.getBean("CategoryDao");
 			 cd.delete(cid);
 			//4.事务控制
 			DataSourceUtils.commitAndClose();
+			
+			//5.清空缓存
+			CacheManager cm = CacheManager.create(CategoryServiceImpl.class.getClassLoader().getResourceAsStream("ehcache.xml"));
+			Cache cache = cm.getCache("categoryCache");
+			cache.remove("clist");
 		} catch (Exception e) {
 			e.printStackTrace();
 			DataSourceUtils.rollbackAndClose();

@@ -7,31 +7,33 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.itheima.domain.Category;
-import com.itheima.service.CategoryService;
-import com.itheima.service.impl.CategoryServiceImpl;
+import com.itheima.domain.Product;
+import com.itheima.service.ProductService;
+import com.itheima.service.impl.ProductServiceImpl;
 
 /**
  * the servlet related to the index page
  */
 public class IndexServlet extends BaseServlet {
 	public String index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//去数据库中查询最新商品和热门商品 将他们放入request域中 请求转发
+		ProductService ps = new ProductServiceImpl();
 		
-		//1.调用categeoryService  查询所有的分类  返回值是list
-		CategoryService cs = new CategoryServiceImpl();
-		List<Category> clist = null;
+		//最新商品
+		List<Product> newList =null;
+		List<Product> hotList =null;
 		try {
-			clist = cs.findAll();
+			newList = ps.findNew();
+			hotList = ps.findHot();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		//2.将返回值放入request域中
-		request.setAttribute("clist", clist);
-		
-		//去数据库中查询最新商品和热门商品 将他们放入request域中 请求转发
-		//query latest & hot products from db, put them into request, request forwarded
+		//热门商品
+
+		//将两个list放入域中
+		request.setAttribute("nList", newList);
+		request.setAttribute("hList", hotList);
 		
 		return "/jsp/index.jsp";
 	}

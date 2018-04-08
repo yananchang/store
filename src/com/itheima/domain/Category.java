@@ -1,10 +1,13 @@
 package com.itheima.domain;
+
+import java.io.Serializable;
+
 /**
  * 分类实体
  * @author Yanan Chang
  *
  */
-public class Category {
+public class Category implements Serializable{
 	private String cid;
 	private String cname;
 

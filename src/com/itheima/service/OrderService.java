@@ -12,4 +12,6 @@ public interface OrderService {
 
 	Order getById(String oid) throws Exception;
 
+	void updateOrder(Order order) throws Exception;
+
 }

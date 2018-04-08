@@ -129,4 +129,26 @@ public class OrderDaoImpl implements OrderDao{
 		return order;
 	}
 
+	/**
+	 * 修改订单
+	 */
+	@Override
+	public void update(Order order) throws Exception {
+		/**
+		 * `oid` varchar(32) NOT NULL,
+    ->   `ordertime` datetime DEFAULT NULL,
+    ->   `total` double DEFAULT NULL,
+    ->   `state` int(11) DEFAULT NULL,
+    ->   `address` varchar(30) DEFAULT NULL,
+    ->   `name` varchar(20) DEFAULT NULL,
+    ->   `telephone` varchar(20) DEFAULT NULL,
+    ->   `uid` varchar(32) DEFAULT NULL,
+		 */
+		
+		QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql = "update orders set state=?,address=?,name=?,telephone=? where oid=?";
+		qr.update(sql,order.getState(),order.getAddress(),order.getName(),order.getTelephone(),order.getOid());
+		
+	}
+
 }

@@ -63,4 +63,15 @@ public class ProductDaoImpl implements ProductDao {
 		return ((Long)qr.query(sql, new ScalarHandler(),cid)).intValue();
 	}
 
+	/**
+	 * 更新商品的cid  为删除分类的时候而准备
+	 */
+	@Override
+	public void updateCid(String cid) throws Exception {
+		QueryRunner qr = new QueryRunner(); 
+		String sql = "update product set cid = null where cid = ?";
+		qr.update(DataSourceUtils.getConnection(), sql, cid);
+
+	}
+
 }

@@ -62,9 +62,14 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public Order getById(String oid) throws Exception {
 		OrderDao od = (OrderDao) BeanFactory.getBean("OrderDao");
-
-		
 		return od.getById(oid);
+	}
+
+	@Override
+	public void updateOrder(Order order) throws Exception {
+
+		OrderDao od = (OrderDao) BeanFactory.getBean("OrderDao");
+		od.update(order);
 	}
 
 }

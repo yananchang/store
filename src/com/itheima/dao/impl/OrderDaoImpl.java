@@ -151,4 +151,14 @@ public class OrderDaoImpl implements OrderDao{
 		
 	}
 
+	@Override
+	public List<Order> findAllByState() throws Exception {
+		/*QueryRunner qr = new QueryRunner(DataSourceUtils.getDataSource());
+		String sql = "select * from orders where 1=1";
+		if(state != null && state.trim().length>0) {
+			return qr.query(sql, params, rsh)
+		}
+		return null;*/
+	}
+
 }

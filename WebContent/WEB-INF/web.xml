@@ -106,4 +106,34 @@
     <servlet-name>AdminCategoryServlet</servlet-name>
     <url-pattern>/adminCategory</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminProductServlet</display-name>
+    <servlet-name>AdminProductServlet</servlet-name>
+    <servlet-class>com.itheima.web.servlet.AdminProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminProductServlet</servlet-name>
+    <url-pattern>/adminProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddProductServlet</display-name>
+    <servlet-name>AddProductServlet</servlet-name>
+    <servlet-class>com.itheima.web.servlet.AddProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddProductServlet</servlet-name>
+    <url-pattern>/addProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminOrderServlet</display-name>
+    <servlet-name>AdminOrderServlet</servlet-name>
+    <servlet-class>com.itheima.web.servlet.AdminOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminOrderServlet</servlet-name>
+    <url-pattern>/adminOrder</url-pattern>
+  </servlet-mapping>
 </web-app>

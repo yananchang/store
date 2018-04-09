@@ -28,7 +28,7 @@
 		d.add('010201','0102','展示所有','${pageContext.request.contextPath}/adminCategory?method=findAll','','mainFrame');
 		d.add('010202','0102','添加分类','${pageContext.request.contextPath}/adminCategory?method=addUI','','mainFrame');
 		d.add('0104','01','商品管理');
-		d.add('010401','0104','商品管理','${pageContext.request.contextPath}/adminProduct_findAll.action?page=1','','mainFrame');
+		d.add('010401','0104','商品管理','${pageContext.request.contextPath}/adminProduct?method=findAll','','mainFrame');
 		d.add('0105','01','订单管理');
 		d.add('010501','0105','订单管理','${pageContext.request.contextPath}/adminOrder_findAll.action?page=1','','mainFrame');
 		document.write(d);

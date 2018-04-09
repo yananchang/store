@@ -7,6 +7,7 @@ import com.itheima.dao.impl.ProductDaoImpl;
 import com.itheima.domain.PageBean;
 import com.itheima.domain.Product;
 import com.itheima.service.ProductService;
+import com.itheima.utils.BeanFactory;
 
 public class ProductServiceImpl implements ProductService {
 
@@ -44,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
 	 */
 	@Override
 	public PageBean<Product> findByPage(int currPage, int pageSize, String cid) throws Exception {
-		ProductDao pdao = new ProductDaoImpl();
+		ProductDao pdao = (ProductDao) BeanFactory.getBean("ProductDao");
 		//当前页数据
 		List<Product> list = pdao.findByPage(currPage, pageSize, cid);
 		
@@ -52,6 +53,26 @@ public class ProductServiceImpl implements ProductService {
 		int totalCount = pdao.getTotalCount(cid);
 		
 		return new PageBean<>(list,currPage,pageSize,totalCount);
+	}
+
+	/**
+	 * 查询所有
+	 */
+	@Override
+	public List<Product> findAll() throws Exception {
+		ProductDao pdao = (ProductDao) BeanFactory.getBean("ProductDao");
+
+		return pdao.findAll();
+	}
+
+	/**
+	 * 添加商品
+	 */
+	@Override
+	public void add(Product p) throws Exception {
+		ProductDao pdao = (ProductDao) BeanFactory.getBean("ProductDao");
+		
+		pdao.add(p);
 	}
 
 }
